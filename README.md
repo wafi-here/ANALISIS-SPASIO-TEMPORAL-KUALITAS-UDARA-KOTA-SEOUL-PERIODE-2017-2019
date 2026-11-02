@@ -1,5 +1,3 @@
-# **DAFTAR ISI**
-
 # **BAB 1   PENDAHULUAN**
 
 ## **1.1 Latar Belakang**
@@ -127,84 +125,40 @@ if __name__ == "__main__":
 
 atau kode dapat diinstall melalui repositori berikut: https://github.com/wafi-here/ANALISIS-SPASIO-TEMPORAL-KUALITAS-UDARA-KOTA-SEOUL-PERIODE-2017-2019/blob/main/clean_data.py
 
-![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_fecbb841.gif) 
- **Gambar 1.** Tampilan data kualitas udara pada Microsoft Excel
-
 ## **2.2 Teknik Pengolahan dan Agregasi Data**
 
 Guna mengubah ribuan baris data mentah menjadi ringkasan informasi yang bermakna, metode pengolahan utama memanfaatkan fitur PivotTable yang tersedia di Excel. Teknik agregasi difokuskan pada penggunaan fungsi statistik rata-rata (AVERAGE) untuk menghitung konsentrasi polutan secara komprehensif. Pengaturan PivotTable secara khusus dikonfigurasikan untuk menghitung rata-rata nilai PM2.5 per tahun dan di- breakdown lebih lanjut per kuartal (Q1 hingga Q4) serta fungsi COUNT untuk menghitung kategori kondisi kesehatan per jam. Selain dimensi waktu, agregasi rata-rata juga diterapkan pada dimensi keruangan untuk mengkalkulasi tingkat polusi per wilayah/alamat.
-
-![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_868fb661.gif) **Gambar** **2****.** Tampilan penggunaan AVERAGE sebagai fungsi agregasi
- ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_96c1af5f.gif) 
- **Gambar** **3****.** Tampilan penggunaan AVERAGE sebagai fungsi agregasi
- ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_db153fa.gif) 
- **Gambar** **4****.** Tampilan penggunaan fungsi COUNT untuuk menghitung kondisi kategori pada polutan PM2.5
- ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_b28e928a.gif) 
- **Gambar** **5****.** Tampilan penggunaan AVERAGE sebagai fungsi agregasi
 
 ## **2.3 Perancangan Visualisasi Visual dan Dashboard**
 
 Angka-angka agregat yang dihasilkan dari tahap sebelumnya ditransformasikan menjadi bentuk visual melalui PivotChart, yang kemudian disusun menjadi sebuah dashboard analitik terpadu. Metode visualisasi spesifik yang dikembangkan meliputi:
 
 - ​	Grafik Garis (Line Chart): Digunakan secara khusus untuk menganalisis tren waktu (time-series). Grafik ini diproyeksikan untuk menghitung dan menampilkan frekuensi pergerakan fluktuasi rata-rata PM2.5 berdasarkan kombinasi runtut Tahun dan Kuartalnya (misalnya: 2017-Q1, 2017-Q2, dst.), guna mendeteksi pada kuartal ke berapa puncak polusi udara terjadi setiap tahunnya.
-   ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_4a571f67.gif)
-
-  ​	**Gambar** **6**. Tren Polusi Udara Seiring Waktu periode 2017-2019
-
+  
 - ​	Grafik Batang (Bar Chart): Diterapkan untuk memfasilitasi perbandingan lintas wilayah, di mana grafik ini akan mengurutkan alamat stasiun pemantau dari yang mencatat rekor polusi terendah hingga tertinggi.
-   ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_c40d3c17.gif)
-
-  ​	**Gambar** **7.** Perbandingan Tingkat Polusi Per Lokasi Periode 2017-2019
-
+  
 - ​	Grafik Lingkaran (Pie Chart): Digunakan untuk merangkum proporsi distribusi persentase dari keseluruhan status kelayakan udara (seperti proporsi jam "Baik" versus "Tidak Sehat").
-   ![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_59a05b32.gif)
-
-  ​	**Gambar** **8**. Proporsi Jam Berdasarkan Kategori Kualitas Udara Periode 2017-2019
+  
 
 
 
 Selain PivotChart utama, dashboard ini juga dilengkapi dengan Sparklines (Line dan Column) pada tabel rincian untuk memberikan gambaran mikro mengenai tren dan titik lonjakan polusi (High/Low Points) di setiap lokasi per kuartal.
 
-![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_9d9aa952.gif)
-
-- ​	**Gambar** **9**. Proporsi Jam Berdasarkan Kategori Kualitas Udara Periode 2017-2019
-
 # **BAB 3   Temuan dan Jawaban Analisis**
 
 1. ​			Berdasarkan proses 	ekstraksi, pembersihan, dan agregasi data historis menggunakan 	teknik *PivotTable* terhadap 50.900 baris data, analisis ini 	menghasilkan temuan-temuan empiris yang secara komprehensif 	menjawab pertanyaan rumusan di atas. Berikut adalah rincian temuan 	yang mendeskripsikan kondisi kualitas udara kota Seoul:
 
-![img](file:///tmp/lu14234ti1m.tmp/lu14234toau_tmp_f23b7012.png)
-
-**Gambar** **10**. Dashboard Analisis Kualitas Udara Kota Seoul Periode 2017-2019	
-
 ## **3.1 Pola Tren Tahunan dan Lonjakan Kuartalan (Puncak Polusi)**
 
-1. ​			Evaluasi data time-series 	menunjukkan adanya pola musiman yang sangat konsisten di mana 	polusi udara selalu memburuk pada akhir-awal tahun dan membaik pada 	pertengahan tahun. Kuartal Pertama (Q1) secara absolut menjadi 	periode dengan tingkat polusi terburuk setiap tahunnya, mencatat 	rata-rata PM2.5 sebesar 34,54 µg/m³ (2017), 29,01 µg/m³ (2018), 	dan mencapai rekor tertinggi keseluruhan pada Q1 2019 dengan angka 	35,71 µg/m³. Sebaliknya, Kuartal Ketiga (Q3) secara konsisten 	menjadi periode dengan udara paling bersih, dengan rata-rata 	konsentrasi PM2.5 menyentuh titik terendah hingga 13,42 µg/m³ 	pada tahun 2018. Hal ini mengonfirmasi bahwa periode Desember 	hingga Maret merupakan masa paling kritis bagi kualitas udara di 	Seoul.
-
-
-   ![image-20261102145231465](/home/wafiannafis/.config/Typora/typora-user-images/image-20261102145231465.png)
-
-   **Gambar** **11**. Line Chart Kualitas Udara Kota Seoul Periode 2017
-
-   ![image-20261102145314145](/home/wafiannafis/.config/Typora/typora-user-images/image-20261102145314145.png)**Gambar** 	**12**	Line Chart Kualitas 	Udara Kota Seoul 	Periode 	2018
-
-   ![image-20261102145400408](/home/wafiannafis/.config/Typora/typora-user-images/image-20261102145400408.png)
-
-   **Gambar** **13**. Line Chart Kualitas 	Udara Kota Seoul 	Periode 	2019
+1. ​			Evaluasi data time-series 	menunjukkan adanya pola musiman yang sangat konsisten di mana 	polusi udara selalu memburuk pada akhir-awal tahun dan membaik pada 	pertengahan tahun. Kuartal Pertama (Q1) secara absolut menjadi 	periode dengan tingkat polusi terburuk setiap tahunnya, mencatat 	rata-rata PM2.5 sebesar 34,54 µg/m³ (2017), 29,01 µg/m³ (2018), 	dan mencapai rekor tertinggi keseluruhan pada Q1 2019 dengan angka 	35,71 µg/m³. Sebaliknya, Kuartal Ketiga (Q3) secara konsisten 	menjadi periode dengan udara paling bersih, dengan rata-rata 	konsentrasi PM2.5 menyentuh titik terendah hingga 13,42 µg/m³ 	pada tahun 2018. Hal ini mengonfirmasi bahwa periode Desember 	hingga Maret merupakan masa paling kritis bagi kualitas udara di Seoul.
 
    ## **3.2 Identifikasi Titik Kerentanan Spasial (Lokasi Terburuk)**
 
    ​	Analisis terhadap variabel 	lokasi menunjukkan bahwa paparan polusi cukup terdistribusi secara 	merata, tidak terpusat pada distrik-distrik tertentu. Stasiun 	pemantau yang berlokasi di Jongno-gu (19, Jong-ro 35ga-gil, 	Jongno-gu) tercatat sebagai wilayah dengan kualitas udara terburuk, 	mengakumulasi rata-rata PM2.5 tertinggi sebesar 22,85 µg/m³ 	selama periode tiga tahun tersebut. Tingkat kerentanan yang hampir 	setara juga ditemukan di wilayah Jung-gu (15, Deoksugung-gil) yang 	mencatat rata-rata 22,63 µg/m³. Angka ini menegaskan perlunya 	intervensi mitigasi yang lebih ketat di kedua titik pusat kota 	tersebut.
 
-   ![image-20261102145604179](/home/wafiannafis/.config/Typora/typora-user-images/image-20261102145604179.png)
-   **Gambar** **14**. Bar Chart Analisis Kualitas Udara Pada Dua Lokasi Berbeda Kota Seoul Periode 2017-2019
-
    ## **3.3 Distribusi Kategorisasi Kelayakan Udara**
 
    ​	Meskipun terjadi lonjakan 	ekstrem pada kuartal pertama dan keempat setiap tahunnya, kalkulasi 	terhadap proporsi kualitas udara perjam menunjukkan bahwa secara 	umum, warga Seoul masih menikmati udara dalam ambang batas yang 	dapat ditoleransi. Selama kurun waktu 2017–2019, mayoritas waktu 	(54,70%) berada pada kategori "Sedang", diikuti oleh 	kategori "Baik" sebesar 40,11%. Kendati demikian, 	terdapat 5,10% jam di mana udara diklasifikasikan sebagai "Tidak 	Sehat", serta 0,09% jam dengan tingkat "Sangat Tidak 	Sehat" (mayoritas terjadi pada Q1).
-   ![image-20261102145631143](/home/wafiannafis/.config/Typora/typora-user-images/image-20261102145631143.png)
-
-   **Gambar** **15**.  Pie Chart Kualitas Udara Kota Seoul Periode 2017-2019
 
    # **DAFTAR PUSTAKA**
 
